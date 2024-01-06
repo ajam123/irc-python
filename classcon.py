@@ -354,7 +354,7 @@ def on_join(connection, event):
         with thread_lock:
              print("[IRC] Joined", event.target)
         if AUTOCLIENTS != True:
-            joinmsg = "**Bridge is now running, do !joinirc to get a client!**"
+            joinmsg = "** EM IRC Bridge is now running. Use /joinirc to be registered as a client in IRC."
         else:
             joinmsg = "**Bridge is now running!**"
         discord.send_my_message(discord_chan, joinmsg)
@@ -389,7 +389,7 @@ def on_quit(connection, event):
         reason = "(" + event.arguments[0] + ")"
     else:
         reason = ""
-    send_to_matching(event.source.nick, "<- **" + event.source.nick + " quit " + network + " " + reason + "**")
+    send_to_matching(event.source.nick, "<- **" + event.source.nick + " quit the IRC Channel.")
     pop_from_channels(event.source.nick)
     #print(channels_lists)
 
